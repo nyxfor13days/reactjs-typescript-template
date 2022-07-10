@@ -9,7 +9,27 @@ module.exports = {
 		filename: 'bundle.js',
 	},
 	devServer: {
+		open: true,
+		host: '0.0.0.0',
 		port: 3000,
+		hot: true,
+		liveReload: true,
+		compress: true,
+		client: {
+			logging: 'info',
+			overlay: {
+				errors: true,
+				warnings: false,
+			},
+			progress: true,
+			reconnect: true,
+		},
+		static: {
+			directory: path.join(__dirname, '/dist'),
+		},
+		cache: {
+			type: 'memory',
+		},
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
